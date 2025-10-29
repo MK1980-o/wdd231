@@ -7,8 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { subject: 'CSE', number: 111, title: 'Programming with Functions', credits: 2, completed: true },
         { subject: 'CSE', number: 210, title: 'Programming with Classes', credits: 2, completed: true },
         { subject: 'WDD', number: 131, title: 'Dynamic Web Fundamentals', credits: 2, completed: true },
-        { subject: 'WDD', number: 231, title: 'Frontend Web Development I', credits: 2, completed: false, current: true },
-        { subject: 'ITM', number: 111, title: 'Introduction to Databases', credits: 2, completed: false, current: true } 
+        { subject: 'WDD', number: 231, title: 'Frontend Web Development I', credits: 2, completed: false, current: true }
     ];
     
     const courseCardsContainer = document.getElementById('courseCards');
