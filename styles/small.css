@@ -7,6 +7,7 @@
     --light-color: #f8f9fa;
     --dark-color: #343a40;
     --completed-color: #28a745;
+    --current-color: #ffc107;
     --border-radius: 8px;
     --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     --transition: all 0.3s ease;
@@ -203,6 +204,11 @@ h2 {
     background-color: rgba(40, 167, 69, 0.05);
 }
 
+.course-card.current {
+    border-left-color: var(--current-color);
+    background-color: rgba(255, 193, 7, 0.05);
+}
+
 .course-code {
     font-weight: 600;
     color: var(--primary-color);
@@ -227,6 +233,17 @@ h2 {
     border-radius: 4px;
     font-size: 0.8rem;
     margin-top: 0.5rem;
+}
+
+.current-badge {
+    display: inline-block;
+    background-color: var(--current-color);
+    color: var(--dark-color);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+    font-weight: 500;
 }
 
 /* Resources Section */

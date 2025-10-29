@@ -1,13 +1,14 @@
 // Course functionality
 document.addEventListener('DOMContentLoaded', function() {
-    // Course data array
+    // Course data array - UPDATED WITH ITM 111
     const courses = [
         { subject: 'CSE', number: 110, title: 'Introduction to Programming', credits: 2, completed: true },
         { subject: 'WDD', number: 130, title: 'Web Fundamentals', credits: 2, completed: true },
         { subject: 'CSE', number: 111, title: 'Programming with Functions', credits: 2, completed: true },
         { subject: 'CSE', number: 210, title: 'Programming with Classes', credits: 2, completed: true },
         { subject: 'WDD', number: 131, title: 'Dynamic Web Fundamentals', credits: 2, completed: true },
-        { subject: 'WDD', number: 231, title: 'Frontend Web Development I', credits: 2, completed: false }
+        { subject: 'WDD', number: 231, title: 'Frontend Web Development I', credits: 2, completed: false, current: true },
+        { subject: 'ITM', number: 111, title: 'Introduction to Databases', credits: 2, completed: false, current: true } 
     ];
     
     const courseCardsContainer = document.getElementById('courseCards');
@@ -28,13 +29,23 @@ document.addEventListener('DOMContentLoaded', function() {
         // Create course cards
         filteredCourses.forEach(course => {
             const courseCard = document.createElement('div');
-            courseCard.className = `course-card ${course.completed ? 'completed' : ''}`;
+            let statusClass = '';
+            let statusBadge = '';
             
+            if (course.completed) {
+                statusClass = 'completed';
+                statusBadge = '<div class="completed-badge">Completed</div>';
+            } else if (course.current) {
+                statusClass = 'current';
+                statusBadge = '<div class="current-badge">In Progress</div>';
+            }
+            
+            courseCard.className = `course-card ${statusClass}`;
             courseCard.innerHTML = `
                 <div class="course-code">${course.subject} ${course.number}</div>
                 <div class="course-title">${course.title}</div>
                 <div class="course-credits">${course.credits} credits</div>
-                ${course.completed ? '<div class="completed-badge">Completed</div>' : ''}
+                ${statusBadge}
             `;
             
             courseCardsContainer.appendChild(courseCard);
