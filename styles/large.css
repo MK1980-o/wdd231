@@ -1,0 +1,61 @@
+/* Large Screen Styles */
+@media (min-width: 768px) {
+    /* Navigation */
+    .hamburger {
+        display: none;
+    }
+    
+    .navigation {
+        max-height: none;
+        background-color: var(--secondary-color);
+    }
+    
+    .nav-menu {
+        display: flex;
+        justify-content: center;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    .nav-menu li {
+        border-bottom: none;
+    }
+    
+    .nav-menu a {
+        padding: 1rem 1.5rem;
+    }
+    
+    /* Intro Section */
+    .intro-content {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    
+    .intro-content img {
+        margin-right: 1.5rem;
+    }
+    
+    /* Course Controls */
+    .course-controls {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    /* Course Cards */
+    .course-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Resources Section */
+    .resource-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    /* Course Cards */
+    .course-cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

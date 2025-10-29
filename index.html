@@ -3,9 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WDD 231</title>
+    <meta name="description" content="WDD231 Course Home Page - Web Frontend Development">
+    <meta name="author" content="Your Name">
+    <title>WDD231 Course Home Page</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/small.css">
+    <link rel="stylesheet" href="styles/large.css" media="(min-width: 768px)">
+    
+    <!-- JavaScript Files -->
+    <script src="scripts/navigation.js" defer></script>
+    <script src="scripts/date.js" defer></script>
+    <script src="scripts/course.js" defer></script>
 </head>
 <body>
-    <h1>WDD 231 - Marko</h1>
+    <header>
+        <div class="header-container">
+            <div class="logo-container">
+                <svg class="logo" width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="40" height="40" rx="8" fill="#4a6fa5"/>
+                    <path d="M20 10L25 15H15L20 10Z" fill="white"/>
+                    <rect x="12" y="18" width="16" height="8" rx="2" fill="white"/>
+                    <rect x="12" y="28" width="16" height="4" rx="2" fill="white"/>
+                </svg>
+                <span class="name">Marko Kuriyazi</span>
+            </div>
+            <button class="hamburger" aria-label="Toggle navigation menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <nav class="navigation">
+        <ul class="nav-menu">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="chamber.html">Chamber</a></li>
+            <li><a href="final.html">Final</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h1>Home</h1>
+        
+        <section class="intro">
+            <h2>About Me</h2>
+            <div class="intro-content">
+                <img src="images/profile.jpg" alt="Profile picture" width="150" height="150">
+                <p>Welcome to my WDD231 course home page. I'm currently pursuing a degree in Software Development with a focus on web technologies. This page will showcase my progress through the Web and Computer Programming certificate program.</p>
+            </div>
+        </section>
+        
+        <section class="courses">
+            <h2>Course List</h2>
+            <div class="course-controls">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all">All Courses</button>
+                    <button class="filter-btn" data-filter="WDD">WDD Courses</button>
+                    <button class="filter-btn" data-filter="CSE">CSE Courses</button>
+                </div>
+                <div class="credits-display">
+                    Total Credits: <span id="totalCredits">0</span>
+                </div>
+            </div>
+            <div class="course-cards" id="courseCards">
+                <!-- Course cards will be dynamically generated here -->
+            </div>
+        </section>
+        
+        <section class="resources">
+            <h2>Learning Resources</h2>
+            <div class="resource-list">
+                <div class="resource-card">
+                    <h3>MDN Web Docs</h3>
+                    <p>Comprehensive documentation for HTML, CSS, and JavaScript.</p>
+                    <a href="https://developer.mozilla.org/" target="_blank">Visit</a>
+                </div>
+                <div class="resource-card">
+                    <h3>W3Schools</h3>
+                    <p>Tutorials and references for web development technologies.</p>
+                    <a href="https://www.w3schools.com/" target="_blank">Visit</a>
+                </div>
+                <div class="resource-card">
+                    <h3>CSS-Tricks</h3>
+                    <p>Tips, tricks, and techniques for modern CSS development.</p>
+                    <a href="https://css-tricks.com/" target="_blank">Visit</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://github.com/MK1980-o" aria-label="GitHub">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+            </a>
+            <a href="https://linkedin.com/in/markokuriyazi" aria-label="LinkedIn">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                </svg>
+            </a>
+            <a href="https://twitter.com/marko_kuriyazi" aria-label="Twitter">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                </svg>
+            </a>
+        </div>
+        <div class="footer-info">
+            <p>&copy; <span id="currentYear"></span> | Marko Kuriyazi | Zimbabwe</p>
+        </div>
+        <div class="last-modified">
+            <p>Last Modified: <span id="lastModified"></span></p>
+        </div>
+    </footer>
 </body>
 </html>
