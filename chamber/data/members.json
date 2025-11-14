@@ -1,0 +1,72 @@
+[
+    {
+        "name": "ZimGold Mining",
+        "address": "123 Mining District, Harare",
+        "phone": "+263 242 111111",
+        "website": "https://zimgold.co.zw",
+        "image": "mining-company.jpg",
+        "membershipLevel": 3,
+        "industry": "Mining",
+        "description": "Leading gold mining company in Zimbabwe"
+    },
+    {
+        "name": "Harare Tech Solutions",
+        "address": "456 Tech Park, Eastlea",
+        "phone": "+263 242 222222",
+        "website": "https://hararetech.co.zw",
+        "image": "tech-company.jpg",
+        "membershipLevel": 2,
+        "industry": "Technology",
+        "description": "Innovative IT solutions and software development"
+    },
+    {
+        "name": "Green Harvest Farms",
+        "address": "789 Agricultural Lane, Mbare",
+        "phone": "+263 242 333333",
+        "website": "https://greenharvest.co.zw",
+        "image": "agriculture-company.jpg",
+        "membershipLevel": 2,
+        "industry": "Agriculture",
+        "description": "Sustainable farming and fresh produce"
+    },
+    {
+        "name": "Victoria Falls Tours",
+        "address": "321 Tourism Avenue, City Centre",
+        "phone": "+263 242 444444",
+        "website": "https://victoriafallstours.co.zw",
+        "image": "tourism-company.jpg",
+        "membershipLevel": 3,
+        "industry": "Tourism",
+        "description": "Premium tour experiences across Zimbabwe"
+    },
+    {
+        "name": "Harare Construction Ltd",
+        "address": "654 Builders Street, Belvedere",
+        "phone": "+263 242 555555",
+        "website": "https://harareconstruction.co.zw",
+        "image": "construction-company.jpg",
+        "membershipLevel": 1,
+        "industry": "Construction",
+        "description": "Quality construction and infrastructure development"
+    },
+    {
+        "name": "ZimBank Financial",
+        "address": "987 Finance Road, CBD",
+        "phone": "+263 242 666666",
+        "website": "https://zimbank.co.zw",
+        "image": "banking-company.jpg",
+        "membershipLevel": 3,
+        "industry": "Banking",
+        "description": "Trusted financial services for individuals and businesses"
+    },
+    {
+        "name": "Harare Medical Center",
+        "address": "147 Health Boulevard, Avondale",
+        "phone": "+263 242 777777",
+        "website": "https://hararemedical.co.zw",
+        "image": "healthcare-company.jpg",
+        "membershipLevel": 2,
+        "industry": "Healthcare",
+        "description": "Comprehensive medical care and health services"
+    }
+]
