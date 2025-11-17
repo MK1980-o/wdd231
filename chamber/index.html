@@ -1,72 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Harare Chamber of Commerce - Promoting business growth in Harare, Zimbabwe">
-    <meta name="author" content="Your Name">
-    
-    <!-- Facebook Meta Tags -->
-    <meta property="og:title" content="Harare Chamber of Commerce">
-    <meta property="og:description" content="Promoting business growth in Harare, Zimbabwe">
-    <meta property="og:image" content="images/harare-chamber-logo.jpg">
-    <meta property="og:url" content="https://yourwebsite.com">
-    
-    <title>Home - Harare Chamber of Commerce</title>
-    
-    <link rel="stylesheet" href="styles/normalize.css">
-    <link rel="stylesheet" href="styles/base.css">
-    <link rel="stylesheet" href="styles/larger.css">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Harare Chamber - Home</title>
+  <meta name="description" content="Harare Chamber of Commerce - Connecting local businesses.">
+  <meta name="author" content="Marko Kuriyazi">
+
+  <!-- Social meta -->
+  <meta property="og:title" content="Harare Chamber of Commerce">
+  <meta property="og:description" content="Promoting business growth in Harare, Zimbabwe">
+  <meta property="og:image" content="images/harare-chamber-logo.jpg">
+  <meta property="og:url" content="https://mk1980-o.github.io/wdd231/chamber/index.html">
+
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/base.css">
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <img src="images/harare-chamber-logo.jpg" alt="Harare Chamber of Commerce Logo" width="100" height="100">
-            <h1>Harare Chamber of Commerce</h1>
+  <header>
+    <div class="header-inner">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <img src="images/harare-chamber-logo.jpg" alt="Harare Chamber logo" width="64" height="64">
+        <h1>Harare Chamber</h1>
+      </div>
+
+      <nav>
+        <button id="menu-toggle" aria-label="Toggle menu">☰</button>
+        <ul id="main-nav" role="menubar" aria-label="Main navigation">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="directory.html">Directory</a></li>
+          <li><a href="join.html">Join</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-heading">
+      <div>
+        <h2 id="hero-heading">Grow Your Business in Harare</h2>
+        <p>We connect businesses, provide resources, and host events for growth.</p>
+        <a href="join.html" class="cta-button" style="margin-top:10px;">Join the Chamber</a>
+      </div>
+    </section>
+
+    <div class="container">
+      <!-- Current Events -->
+      <section aria-labelledby="events-heading" style="margin-top:18px;">
+        <h2 id="events-heading">Current Events</h2>
+        <div id="events" style="padding:12px;border-radius:8px;border:1px dashed #e6eef8;">
+          <!-- Placeholder content is OK -->
+          <article>
+            <h3>Business Roundtable — Nov 28, 2025</h3>
+            <p>Join local business leaders to discuss growth and investment opportunities.</p>
+          </article>
         </div>
-        <nav>
-            <button id="menu-toggle" aria-label="Toggle navigation menu">☰</button>
-            <ul id="main-nav">
-                <li><a href="index.html" class="active">Home</a></li>
-                <li><a href="discover.html">Discover</a></li>
-                <li><a href="directory.html">Directory</a></li>
-                <li><a href="join.html">Join</a></li>
-            </ul>
-        </nav>
-    </header>
+      </section>
 
-    <main>
-        <section class="hero">
-            <h2>Welcome to Harare Chamber of Commerce</h2>
-            <p>Connecting businesses, driving growth in Zimbabwe's capital</p>
-        </section>
-        
-        <section class="cta">
-            <h3>Join Our Community</h3>
-            <p>Become a member and grow your business with us</p>
-            <a href="join.html" class="cta-button">Join Now</a>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-content">
-            <div class="contact-info">
-                <h3>Contact Information</h3>
-                <p>Harare Chamber of Commerce</p>
-                <p>123 Business District, Harare</p>
-                <p>Zimbabwe</p>
-                <p>Email: info@hararechamber.org</p>
-                <p>Phone: +263 242 123456</p>
-            </div>
-            <div class="development-info">
-                <p>&copy; <span id="current-year"></span> Harare Chamber of Commerce</p>
-                <p>Marko Kuriyazi | WDD 231</p>
-                <p>Last Modified: <span id="last-modified"></span></p>
-            </div>
+      <!-- Weather widget -->
+      <section aria-labelledby="weather-heading" style="margin-top:18px;">
+        <h2 id="weather-heading">Local Weather (Harare)</h2>
+        <div id="weatherWidget" style="padding:12px;border-radius:8px;border:1px solid #eef6ff;max-width:420px;">
+          <div id="currentWeather">Loading weather...</div>
+          <div id="forecast" style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;"></div>
         </div>
-    </footer>
+      </section>
 
-    <script src="scripts/common.js"></script>
+      <!-- Spotlights -->
+      <section class="spotlights" aria-labelledby="spotlight-heading" style="margin-top:18px;">
+        <h2 id="spotlight-heading">Company Spotlights</h2>
+        <div id="spotlightContainer" class="spotlight-container" aria-live="polite">
+          <!-- spotlight.js fills this -->
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <h3>Contact</h3>
+        <p>Harare Chamber of Commerce</p>
+        <p>123 Business District, Harare</p>
+      </div>
+      <div style="text-align:right;">
+        <p>&copy; <span id="current-year"></span> Harare Chamber</p>
+        <p>Marko Kuriyazi | WDD 231</p>
+        <p>Last Modified: <span id="last-modified"></span></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts/spotlight.js"></script>
+  <script src="scripts/weather.js"></script>
 </body>
 </html>

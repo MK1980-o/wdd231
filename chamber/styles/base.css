@@ -1,433 +1,145 @@
-/* Base Styles for Harare Chamber of Commerce */
-:root {
-    --primary-color: #1a5276;
-    --secondary-color: #f39c12;
-    --accent-color: #27ae60;
-    --text-color: #2c3e50;
-    --background-color: #ecf0f1;
-    --white: #ffffff;
-    --gray-light: #bdc3c7;
-    --gray-dark: #7f8c8d;
-    --shadow: 0 2px 5px rgba(0,0,0,0.1);
-    --border-radius: 8px;
+:root{
+  --bg:#ffffff;
+  --text:#111827;
+  --muted:#4b5563;
+  --accent:#0b5cff;
+  --accent-contrast:#ffffff;
+  --card-bg:#f8fafc;
+  --gold:#FFD700;
+  --silver:#C0C0C0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-size:16px;
 }
 
-/* Box-sizing is already handled by modern-normalize */
-body {
-    line-height: 1.6;
-    color: var(--text-color);
-    background-color: var(--background-color);
-    margin: 0;
-    padding: 0;
-    min-width: 320px;
+/* Basic layout */
+*{box-sizing:border-box;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  margin:0;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
 }
 
-/* Header Styles */
-header {
-    background-color: var(--white);
-    box-shadow: var(--shadow);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+/* Header */
+header{
+  border-bottom: 1px solid #e6eef8;
+  background: linear-gradient(0deg, rgba(255,255,255,1), rgba(248,250,252,1));
+  position: sticky;
+  top:0;
+  z-index:100;
+}
+.header-inner{
+  max-width:1100px;
+  margin:0 auto;
+  display:flex;
+  align-items:center;
+  gap:16px;
+  padding:12px 18px;
+}
+.header-inner img{border-radius:6px;}
+.header-inner h1{
+  font-size:1.125rem;
+  margin:0;
+  color:var(--text);
 }
 
-.header-content {
-    display: flex;
-    align-items: center;
-    padding: 1rem;
-    background-color: var(--primary-color);
-    color: var(--white);
+/* Nav */
+nav{ display:flex; align-items:center; justify-content:space-between; }
+#main-nav{ list-style:none; display:flex; gap:12px; margin:0; padding:0; }
+#main-nav a{
+  text-decoration:none;
+  color:var(--text);
+  padding:8px 10px;
+  border-radius:6px;
+}
+#main-nav a:focus, #main-nav a:hover, #main-nav a.active{
+  background:var(--accent);
+  color:var(--accent-contrast);
+  outline:none;
 }
 
-.header-content img {
-    margin-right: 1rem;
+/* menu toggle - mobile */
+#menu-toggle{
+  display:none;
+  background:transparent;
+  border:1px solid transparent;
+  font-size:1.2rem;
 }
 
-.header-content h1 {
-    margin: 0;
-    font-size: 1.5rem;
+/* Hero */
+.hero{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:64px 18px;
+  background-image:linear-gradient(rgba(11,92,255,0.06), rgba(11,92,255,0.02));
+}
+.hero h2{ font-size:2rem; margin:0 0 8px; color:var(--text); }
+.hero p{ margin:0; color:var(--muted); }
+
+/* CTA button over hero */
+.cta-button{
+  display:inline-block;
+  margin-top:18px;
+  padding:12px 18px;
+  background:var(--accent);
+  color:var(--accent-contrast);
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:600;
 }
 
-/* Navigation Styles */
-nav {
-    background-color: var(--white);
-    border-bottom: 2px solid var(--primary-color);
-}
+/* Main container */
+.container{ max-width:1100px; margin:24px auto; padding:0 18px; }
 
-#menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    padding: 0.5rem;
-    margin: 0.5rem;
-}
+/* Directory controls */
+.controls{ display:flex; gap:10px; align-items:center; margin-bottom:14px; flex-wrap:wrap; }
+.view-btn{ padding:8px 12px; border-radius:6px; background:#eef6ff; border:1px solid #d7e8ff; cursor:pointer; }
+.filter-select{ padding:8px; border-radius:6px; border:1px solid #d1d5db; }
 
-#main-nav {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+/* Cards grid & list */
+.cards-grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+  gap:16px;
 }
-
-#main-nav li {
-    flex: 1;
-    text-align: center;
+.card{
+  background:var(--card-bg);
+  border-radius:10px;
+  padding:12px;
+  box-shadow:0 1px 2px rgba(16,24,40,0.03);
+  display:flex;
+  gap:12px;
+  align-items:flex-start;
 }
+.card img{ width:84px; height:84px; object-fit:cover; border-radius:8px; flex-shrink:0; }
+.card h3{ margin:0 0 6px; font-size:1.05rem; color:var(--text); }
+.card p{ margin:0; color:var(--muted); font-size:0.95rem; }
 
-#main-nav a {
-    display: block;
-    padding: 1rem;
-    text-decoration: none;
-    color: var(--text-color);
-    font-weight: 500;
-    transition: all 0.3s ease;
-}
+/* Membership badge */
+.badge{ padding:6px 8px; border-radius:999px; font-weight:700; font-size:0.8rem; display:inline-block; margin-left:auto; }
+.badge.gold{ background: linear-gradient(90deg,#ffd966,#ffb84d); color:#111; }
+.badge.silver{ background: linear-gradient(90deg,#e6e6e6,#bdbdbd); color:#111; }
 
-#main-nav a:hover,
-#main-nav a.active {
-    background-color: var(--primary-color);
-    color: var(--white);
-}
+/* Spotlight section */
+.spotlights{ margin-top:24px; }
+.spotlight-container{ display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; }
+.spotlight{ background:#fff; padding:12px; border-radius:8px; border:1px solid #eef2ff; }
 
-/* Main Content Styles */
-main {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 2rem 1rem;
-    min-height: calc(100vh - 200px);
-}
+/* Footer */
+footer{ background:#0b1b2f; color:#e6eef8; padding:18px 0; margin-top:28px; }
+.footer-inner{ max-width:1100px; margin:0 auto; padding:0 18px; display:flex; gap:20px; justify-content:space-between; flex-wrap:wrap; }
+.footer-inner p{ margin:4px 0; }
 
-/* Footer Styles - Always Centered */
-footer {
-    background-color: var(--primary-color);
-    color: var(--white);
-    padding: 1rem;
-    margin-top: 2rem;
-    text-align: center;
-}
+/* Utilities */
+.hidden{ display:none !important; }
 
-.footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.contact-info {
-    text-align: center;
-}
-
-.contact-info h3 {
-    margin: 0 0 0.5rem 0;
-    color: var(--white);
-    font-size: 1rem;
-}
-
-.contact-info p {
-    margin: 0.1rem 0;
-    line-height: 1.2;
-    font-size: 0.85rem;
-}
-
-.development-info {
-    text-align: center;
-    padding-top: 0.5rem;
-    width: 100%;
-}
-
-.development-info p {
-    margin: 0.1rem 0;
-    line-height: 1.2;
-    font-size: 0.85rem;
-}
-
-/* Button Styles */
-button, .cta-button {
-    background-color: var(--secondary-color);
-    color: var(--white);
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: var(--border-radius);
-    cursor: pointer;
-    font-size: 1rem;
-    font-weight: 600;
-    text-decoration: none;
-    display: inline-block;
-    transition: background-color 0.3s ease;
-}
-
-button:hover, .cta-button:hover {
-    background-color: #e67e22;
-}
-
-/* Form Styles */
-form {
-    background-color: var(--white);
-    padding: 2rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
-}
-
-fieldset {
-    border: 1px solid var(--gray-light);
-    border-radius: var(--border-radius);
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-}
-
-legend {
-    font-weight: 600;
-    padding: 0 0.5rem;
-}
-
-label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-}
-
-input, select, textarea {
-    width: 100%;
-    padding: 0.75rem;
-    margin-bottom: 1rem;
-    border: 1px solid var(--gray-light);
-    border-radius: var(--border-radius);
-    font-size: 1rem;
-}
-
-input:focus, select:focus, textarea:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px rgba(26, 82, 118, 0.2);
-}
-
-/* Hero Section */
-.hero {
-    background: linear-gradient(135deg, var(--primary-color), #2980b9);
-    color: var(--white);
-    padding: 3rem 2rem;
-    text-align: center;
-    border-radius: var(--border-radius);
-    margin-bottom: 2rem;
-}
-
-.hero h2 {
-    margin: 0 0 1rem 0;
-    font-size: 2rem;
-}
-
-.cta {
-    text-align: center;
-    padding: 2rem;
-    background-color: var(--white);
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
-}
-
-/* Directory Specific Styles */
-.directory-main h2 {
-    text-align: center;
-    margin-bottom: 2rem;
-    color: var(--primary-color);
-}
-
-.view-toggle {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 2rem;
-    gap: 1rem;
-}
-
-.view-toggle button {
-    background-color: var(--gray-light);
-    color: var(--text-color);
-}
-
-.view-toggle button.active {
-    background-color: var(--primary-color);
-    color: var(--white);
-}
-
-/* Grid View */
-.grid-view {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-/* List View */
-.list-view {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.list-view .member-card {
-    display: flex;
-    align-items: center;
-    padding: 1rem;
-    background-color: var(--white);
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
-}
-
-.list-view .member-card img {
-    width: 80px;
-    height: 80px;
-    margin-right: 1rem;
-}
-
-.list-view .member-info {
-    flex: 1;
-}
-
-/* Member Cards */
-.member-card {
-    background-color: var(--white);
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
-    padding: 1.5rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.member-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-.member-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: var(--border-radius);
-    margin-bottom: 1rem;
-}
-
-.member-card h3 {
-    color: var(--primary-color);
-    margin: 0 0 0.5rem 0;
-}
-
-.member-card .membership {
-    display: inline-block;
-    padding: 0.25rem 0.75rem;
-    background-color: var(--accent-color);
-    color: var(--white);
-    border-radius: 20px;
-    font-size: 0.875rem;
-    margin-bottom: 1rem;
-}
-
-.member-card .membership.silver {
-    background-color: #95a5a6;
-}
-
-.member-card .membership.gold {
-    background-color: #f1c40f;
-    color: var(--text-color);
-}
-
-/* Discover Page Styles */
-.discover-content {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-}
-
-.stats {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 1rem;
-    margin: 1rem 0;
-}
-
-.stat {
-    background-color: var(--white);
-    padding: 1rem;
-    border-radius: var(--border-radius);
-    text-align: center;
-    box-shadow: var(--shadow);
-}
-
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-}
-
-.gallery-grid figure {
-    margin: 0;
-}
-
-.gallery-grid img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: var(--border-radius);
-}
-
-.gallery-grid figcaption {
-    text-align: center;
-    margin-top: 0.5rem;
-    font-style: italic;
-    color: var(--gray-dark);
-}
-
-/* Join Page Styles */
-.join-content {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 2rem;
-}
-
-.membership-benefits {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-}
-
-.benefit-card {
-    background-color: var(--white);
-    padding: 1.5rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
-    border-left: 4px solid var(--secondary-color);
-}
-
-.benefit-card h4 {
-    margin: 0 0 0.5rem 0;
-    color: var(--primary-color);
-}
-
-/* Thank You Page */
-.thankyou-main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 60vh;
-}
-
-.thankyou-content {
-    text-align: center;
-    background-color: var(--white);
-    padding: 3rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
-}
-
-.thankyou-content h2 {
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-}
-
-/* Error message styles */
-.error-message {
-    color: #e74c3c;
-    font-size: 0.875rem;
-    margin-top: -0.5rem;
-    margin-bottom: 1rem;
+/* Responsive */
+@media (max-width:800px){
+  #main-nav{ display:none; position:absolute; top:64px; right:18px; background:#fff; box-shadow:0 6px 18px rgba(2,6,23,0.08); flex-direction:column; padding:12px; border-radius:8px; min-width:200px; }
+  #menu-toggle{ display:inline-block; }
+  .header-inner{ justify-content:space-between; }
 }

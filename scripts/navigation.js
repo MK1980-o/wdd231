@@ -1,29 +1,29 @@
 // Navigation functionality
 document.addEventListener('DOMContentLoaded', function() {
-    const hamburger = document.querySelector('.hamburger');
-    const navigation = document.querySelector('.navigation');
+    const hamburger = document.getElementById('hamburger-menu');
+    const navContainer = document.querySelector('.nav-container');
     
-    if (hamburger && navigation) {
+    if (hamburger && navContainer) {
         hamburger.addEventListener('click', function() {
             // Toggle navigation menu
-            if (navigation.style.maxHeight) {
-                navigation.style.maxHeight = null;
-            } else {
-                navigation.style.maxHeight = navigation.scrollHeight + "px";
-            }
+            navContainer.classList.toggle('active');
             
             // Animate hamburger icon
             this.classList.toggle('active');
+            this.textContent = this.classList.contains('active') ? '✕' : '☰';
         });
     }
     
     // Close navigation when clicking on a link (for mobile)
-    const navLinks = document.querySelectorAll('.nav-menu a');
+    const navLinks = document.querySelectorAll('.header-links a');
     navLinks.forEach(link => {
         link.addEventListener('click', function() {
             if (window.innerWidth < 768) {
-                navigation.style.maxHeight = null;
-                hamburger.classList.remove('active');
+                navContainer.classList.remove('active');
+                if (hamburger) {
+                    hamburger.classList.remove('active');
+                    hamburger.textContent = '☰';
+                }
             }
         });
     });
@@ -36,6 +36,30 @@ document.addEventListener('DOMContentLoaded', function() {
             link.classList.add('active');
         } else {
             link.classList.remove('active');
+        }
+    });
+    
+    // Close menu when clicking outside (for mobile)
+    document.addEventListener('click', function(event) {
+        if (window.innerWidth < 768 && navContainer && navContainer.classList.contains('active')) {
+            if (!event.target.closest('.navigation') && !event.target.closest('#hamburger-menu')) {
+                navContainer.classList.remove('active');
+                if (hamburger) {
+                    hamburger.classList.remove('active');
+                    hamburger.textContent = '☰';
+                }
+            }
+        }
+    });
+    
+    // Handle window resize
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768 && navContainer) {
+            navContainer.classList.remove('active');
+            if (hamburger) {
+                hamburger.classList.remove('active');
+                hamburger.textContent = '☰';
+            }
         }
     });
 });

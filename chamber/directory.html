@@ -1,71 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Harare Chamber of Commerce Directory - Find local businesses and members in Harare, Zimbabwe">
-    <meta name="author" content="Your Name">
-    
-    <!-- Facebook Meta Tags -->
-    <meta property="og:title" content="Harare Chamber of Commerce Directory">
-    <meta property="og:description" content="Find local businesses and members in Harare, Zimbabwe">
-    <meta property="og:image" content="images/harare-chamber-logo.jpg">
-    <meta property="og:url" content="https://yourwebsite.com/directory.html">
-    
-    <title>Directory - Harare Chamber of Commerce</title>
-    
-    <link rel="stylesheet" href="styles/normalize.css">
-    <link rel="stylesheet" href="styles/base.css">
-    <link rel="stylesheet" href="styles/larger.css">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Directory - Harare Chamber of Commerce</title>
+  <meta name="description" content="Directory of Harare Chamber members. Search and view businesses in Harare.">
+  <meta name="author" content="Marko Kuriyazi">
+
+  <!-- Social meta -->
+  <meta property="og:title" content="Harare Chamber Directory">
+  <meta property="og:description" content="Find member businesses in Harare.">
+  <meta property="og:image" content="images/harare-chamber-logo.jpg">
+  <meta property="og:url" content="https://mk1980-o.github.io/wdd231/chamber/directory.html">
+
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/base.css">
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <img src="images/harare-chamber-logo.jpg" alt="Harare Chamber of Commerce Logo" width="100" height="100">
-            <h1>Harare Chamber of Commerce</h1>
-        </div>
-        <nav>
-            <button id="menu-toggle" aria-label="Toggle navigation menu">☰</button>
-            <ul id="main-nav">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="discover.html">Discover</a></li>
-                <li><a href="directory.html" class="active">Directory</a></li>
-                <li><a href="join.html">Join</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <div class="header-inner">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <img src="images/harare-chamber-logo.jpg" alt="Harare Chamber logo" width="64" height="64">
+        <h1>Harare Chamber</h1>
+      </div>
 
-    <main class="directory-main">
-        <h2>Member Directory</h2>
-        <div class="view-toggle">
-            <button id="grid-view" class="active">Grid View</button>
-            <button id="list-view">List View</button>
-        </div>
-        <div id="member-cards" class="grid-view">
-            <!-- Member cards will be loaded by JavaScript -->
-        </div>
-    </main>
+      <nav>
+        <button id="menu-toggle" aria-label="Toggle menu">☰</button>
+        <ul id="main-nav" role="menubar" aria-label="Main navigation">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="directory.html" class="active">Directory</a></li>
+          <li><a href="join.html">Join</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <footer>
-        <div class="footer-content">
-            <div class="contact-info">
-                <h3>Contact Information</h3>
-                <p>Harare Chamber of Commerce</p>
-                <p>123 Business District, Harare</p>
-                <p>Zimbabwe</p>
-                <p>Email: info@hararechamber.org</p>
-                <p>Phone: +263 242 123456</p>
-            </div>
-            <div class="development-info">
-                <p>&copy; <span id="current-year"></span> Harare Chamber of Commerce</p>
-                <p>Marko Kuriyazi | WDD 231</p>
-                <p>Last Modified: <span id="last-modified"></span></p>
-            </div>
-        </div>
-    </footer>
+  <main class="container" id="main">
+    <section aria-labelledby="directory-heading">
+      <h2 id="directory-heading">Member Directory</h2>
 
-    <script src="scripts/directory.js"></script>
-    <script src="scripts/common.js"></script>
+      <div class="controls" role="region" aria-label="Directory controls">
+        <div>
+          <button class="view-btn" id="grid-view" aria-pressed="true">Grid</button>
+          <button class="view-btn" id="list-view" aria-pressed="false">List</button>
+        </div>
+
+        <label for="filter-level" style="margin-left:12px;color:var(--muted);font-size:0.95rem;">Membership:</label>
+        <select id="filter-level" class="filter-select" aria-label="Filter by membership">
+          <option value="all">All</option>
+          <option value="3">Gold</option>
+          <option value="2">Silver</option>
+          <option value="1">Member</option>
+        </select>
+      </div>
+
+      <div id="cards" class="cards-grid" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <h3>Contact</h3>
+        <p>Harare Chamber of Commerce</p>
+        <p>123 Business District, Harare</p>
+      </div>
+      <div style="text-align:right;">
+        <p>&copy; <span id="current-year"></span> Harare Chamber</p>
+        <p>Marko Kuriyazi | WDD 231</p>
+        <p>Last Modified: <span id="last-modified"></span></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="scripts/directory.js"></script>
 </body>
 </html>
