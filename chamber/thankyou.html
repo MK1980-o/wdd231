@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Thank you for joining Harare Chamber of Commerce">
-    <meta name="author" content="Your Name">
+    <meta name="author" content="Marko Kuriyazi">
     
     <!-- Facebook Meta Tags -->
     <meta property="og:title" content="Thank You - Harare Chamber of Commerce">
@@ -20,27 +20,62 @@
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
     <header>
         <div class="header-content">
             <img src="images/harare-chamber-logo.jpg" alt="Harare Chamber of Commerce Logo" width="100" height="100">
             <h1>Harare Chamber of Commerce</h1>
+            <nav>
+                <button id="menu-toggle" aria-label="Toggle navigation menu">☰</button>
+                <ul id="main-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="discover.html">Discover</a></li>
+                    <li><a href="directory.html">Directory</a></li>
+                    <li><a href="join.html">Join</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <button id="menu-toggle" aria-label="Toggle navigation menu">☰</button>
-            <ul id="main-nav">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="discover.html">Discover</a></li>
-                <li><a href="directory.html">Directory</a></li>
-                <li><a href="join.html">Join</a></li>
-            </ul>
-        </nav>
     </header>
 
-    <main class="thankyou-main">
+    <main id="main-content" class="thankyou-main">
         <div class="thankyou-content">
             <h2>Thank You for Joining!</h2>
             <p>We appreciate your interest in becoming a member of the Harare Chamber of Commerce. Our team will review your application and contact you shortly to complete the membership process.</p>
-            <p>Welcome to our business community!</p>
+            
+            <div class="confirmation-details">
+                <h3>Application Details</h3>
+                <div class="detail-item">
+                    <span class="detail-label">First Name:</span>
+                    <span class="detail-value" id="display-first-name">[First Name]</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Last Name:</span>
+                    <span class="detail-value" id="display-last-name">[Last Name]</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Email Address:</span>
+                    <span class="detail-value" id="display-email">[Email Address]</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Phone Number:</span>
+                    <span class="detail-value" id="display-phone">[Phone Number]</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Business Name:</span>
+                    <span class="detail-value" id="display-business">[Business Name]</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Membership Level:</span>
+                    <span class="detail-value" id="display-membership">[Membership Level]</span>
+                </div>
+                <div class="detail-item">
+                    <span class="detail-label">Application Date:</span>
+                    <span class="detail-value" id="display-timestamp">[Application Date]</span>
+                </div>
+            </div>
+            
+            <p>Welcome to our business community! We look forward to helping your business grow and thrive in Harare's dynamic economic landscape.</p>
             <a href="index.html" class="cta-button">Return to Home</a>
         </div>
     </main>
@@ -63,5 +98,56 @@
         </div>
     </footer>
 
-    <script src="scripts/common.js"></script>
+    <script>
+        // Set current year and last modified date
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        document.getElementById('last-modified').textContent = document.lastModified;
+        
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mainNav = document.getElementById('main-nav');
+        
+        menuToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('show');
+        });
+        
+        // Extract URL parameters and display form data
+        function getUrlParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                firstName: params.get('first-name'),
+                lastName: params.get('last-name'),
+                email: params.get('email'),
+                phone: params.get('phone'),
+                businessName: params.get('business-name'),
+                membershipLevel: params.get('membership-level'),
+                timestamp: params.get('timestamp')
+            };
+        }
+        
+        // Display the form data on the page
+        function displayFormData() {
+            const formData = getUrlParams();
+            
+            // Update the display elements with form data
+            document.getElementById('display-first-name').textContent = formData.firstName || 'Not provided';
+            document.getElementById('display-last-name').textContent = formData.lastName || 'Not provided';
+            document.getElementById('display-email').textContent = formData.email || 'Not provided';
+            document.getElementById('display-phone').textContent = formData.phone || 'Not provided';
+            document.getElementById('display-business').textContent = formData.businessName || 'Not provided';
+            document.getElementById('display-membership').textContent = formData.membershipLevel || 'Not provided';
+            
+            // Format and display the timestamp
+            if (formData.timestamp) {
+                const date = new Date(formData.timestamp);
+                document.getElementById('display-timestamp').textContent = date.toLocaleString();
+            } else {
+                document.getElementById('display-timestamp').textContent = 'Not available';
+            }
+        }
+        
+        // Call the function when the page loads
+        window.addEventListener('DOMContentLoaded', displayFormData);
+    </script>
 </body>
+</html>

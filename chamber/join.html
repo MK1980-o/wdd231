@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Join Harare Chamber of Commerce - Become a member and grow your business">
-    <meta name="author" content="Your Name">
+    <meta name="author" content="Marko Kuriyazi">
     
     <!-- Facebook Meta Tags -->
     <meta property="og:title" content="Join Harare Chamber of Commerce">
@@ -20,59 +20,93 @@
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
     <header>
         <div class="header-content">
             <img src="images/harare-chamber-logo.jpg" alt="Harare Chamber of Commerce Logo" width="100" height="100">
             <h1>Harare Chamber of Commerce</h1>
+            <nav>
+                <button id="menu-toggle" aria-label="Toggle navigation menu">☰</button>
+                <ul id="main-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="discover.html">Discover</a></li>
+                    <li><a href="directory.html">Directory</a></li>
+                    <li><a href="join.html" class="active">Join</a></li>
+                </ul>
+            </nav>
         </div>
-        <nav>
-            <button id="menu-toggle" aria-label="Toggle navigation menu">☰</button>
-            <ul id="main-nav">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="discover.html">Discover</a></li>
-                <li><a href="directory.html">Directory</a></li>
-                <li><a href="join.html" class="active">Join</a></li>
-            </ul>
-        </nav>
     </header>
 
-    <main class="join-main">
+    <main id="main-content" class="join-main">
         <h2>Join the Chamber</h2>
         <div class="join-content">
             <form id="membership-form" method="get" action="thankyou.html">
                 <fieldset>
                     <legend>Personal Information</legend>
-                    <label for="first-name">First Name:*</label>
-                    <input type="text" id="first-name" name="first-name" required>
+                    <div class="form-group">
+                        <label for="first-name">First Name:*</label>
+                        <input type="text" id="first-name" name="first-name" autocomplete="given-name" required>
+                    </div>
                     
-                    <label for="last-name">Last Name:*</label>
-                    <input type="text" id="last-name" name="last-name" required>
+                    <div class="form-group">
+                        <label for="last-name">Last Name:*</label>
+                        <input type="text" id="last-name" name="last-name" autocomplete="family-name" required>
+                    </div>
                     
-                    <label for="title">Title/Position:</label>
-                    <input type="text" id="title" name="title" pattern="[A-Za-z\s\-]{7,}" title="Please enter at least 7 characters">
+                    <div class="form-group">
+                        <label for="title">Title/Position:</label>
+                        <input type="text" id="title" name="title" autocomplete="organization-title" 
+                               pattern="[A-Za-z\s\-]{7,}" 
+                               title="Please enter at least 7 characters (letters, spaces, and hyphens only)">
+                    </div>
                     
-                    <label for="email">Email:*</label>
-                    <input type="email" id="email" name="email" required placeholder="name@example.com">
+                    <div class="form-group">
+                        <label for="email">Email:*</label>
+                        <input type="email" id="email" name="email" autocomplete="email" 
+                               placeholder="name@example.com" required>
+                    </div>
                     
-                    <label for="phone">Mobile Phone:*</label>
-                    <input type="tel" id="phone" name="phone" required>
+                    <div class="form-group">
+                        <label for="phone">Mobile Phone:*</label>
+                        <input type="tel" id="phone" name="phone" autocomplete="tel" required>
+                    </div>
                 </fieldset>
 
                 <fieldset>
                     <legend>Business Information</legend>
-                    <label for="business-name">Business/Organization Name:*</label>
-                    <input type="text" id="business-name" name="business-name" required>
+                    <div class="form-group">
+                        <label for="business-name">Business/Organization Name:*</label>
+                        <input type="text" id="business-name" name="business-name" autocomplete="organization" required>
+                    </div>
                     
-                    <label for="membership-level">Membership Level:</label>
-                    <select id="membership-level" name="membership-level">
-                        <option value="NP">NP Membership (Non-Profit)</option>
-                        <option value="Bronze">Bronze Membership</option>
-                        <option value="Silver">Silver Membership</option>
-                        <option value="Gold">Gold Membership</option>
-                    </select>
+                    <div class="form-group">
+                        <label for="membership-level">Membership Level:*</label>
+                        <div class="membership-options">
+                            <div class="membership-option" data-level="NP">
+                                <h4>NP Membership</h4>
+                                <p>For non-profit organizations</p>
+                            </div>
+                            <div class="membership-option" data-level="Bronze">
+                                <h4>Bronze Membership</h4>
+                                <p>Basic business listing</p>
+                            </div>
+                            <div class="membership-option" data-level="Silver">
+                                <h4>Silver Membership</h4>
+                                <p>Enhanced visibility</p>
+                            </div>
+                            <div class="membership-option" data-level="Gold">
+                                <h4>Gold Membership</h4>
+                                <p>Premium benefits</p>
+                            </div>
+                        </div>
+                        <input type="hidden" id="membership-level" name="membership-level" required>
+                    </div>
                     
-                    <label for="business-description">Business Description:</label>
-                    <textarea id="business-description" name="business-description" rows="4"></textarea>
+                    <div class="form-group">
+                        <label for="business-description">Business Description:</label>
+                        <textarea id="business-description" name="business-description" rows="4"></textarea>
+                    </div>
                 </fieldset>
 
                 <input type="hidden" id="timestamp" name="timestamp">
@@ -81,46 +115,93 @@
 
             <div class="membership-benefits">
                 <h3>Membership Benefits</h3>
-                <div class="benefit-card">
-                    <h4>NP Membership</h4>
-                    <p>For non-profit organizations (no fee)</p>
-                    <ul>
-                        <li>Basic business listing</li>
-                        <li>Monthly newsletter</li>
-                        <li>Community events</li>
-                    </ul>
-                </div>
-                <div class="benefit-card">
-                    <h4>Bronze Membership</h4>
-                    <p>Basic business listing and networking events</p>
-                    <ul>
-                        <li>All NP benefits</li>
-                        <li>Enhanced directory listing</li>
-                        <li>Networking events</li>
-                    </ul>
-                </div>
-                <div class="benefit-card">
-                    <h4>Silver Membership</h4>
-                    <p>Enhanced visibility and training opportunities</p>
-                    <ul>
-                        <li>All Bronze benefits</li>
-                        <li>Training workshops</li>
-                        <li>Business promotion</li>
-                    </ul>
-                </div>
-                <div class="benefit-card">
-                    <h4>Gold Membership</h4>
-                    <p>Premium benefits including sponsorship opportunities</p>
-                    <ul>
-                        <li>All Silver benefits</li>
-                        <li>Sponsorship opportunities</li>
-                        <li>Featured listings</li>
-                        <li>Priority support</li>
-                    </ul>
+                <div class="benefit-cards">
+                    <div class="benefit-card">
+                        <h4>NP Membership</h4>
+                        <p>For non-profit organizations (no fee)</p>
+                        <button class="view-benefits-btn" data-level="NP">View Benefits</button>
+                    </div>
+                    <div class="benefit-card">
+                        <h4>Bronze Membership</h4>
+                        <p>Basic business listing and networking events</p>
+                        <button class="view-benefits-btn" data-level="Bronze">View Benefits</button>
+                    </div>
+                    <div class="benefit-card">
+                        <h4>Silver Membership</h4>
+                        <p>Enhanced visibility and training opportunities</p>
+                        <button class="view-benefits-btn" data-level="Silver">View Benefits</button>
+                    </div>
+                    <div class="benefit-card">
+                        <h4>Gold Membership</h4>
+                        <p>Premium benefits including sponsorship opportunities</p>
+                        <button class="view-benefits-btn" data-level="Gold">View Benefits</button>
+                    </div>
                 </div>
             </div>
         </div>
     </main>
+
+    <!-- Modals for membership benefits -->
+    <div id="np-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>NP Membership Benefits</h3>
+            <p>For non-profit organizations (no fee)</p>
+            <ul>
+                <li>Basic business listing</li>
+                <li>Monthly newsletter</li>
+                <li>Community events</li>
+                <li>Access to member directory</li>
+                <li>Social media mentions</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="bronze-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Bronze Membership Benefits</h3>
+            <p>Basic business listing and networking events</p>
+            <ul>
+                <li>All NP benefits</li>
+                <li>Enhanced directory listing</li>
+                <li>Networking events</li>
+                <li>Business workshops</li>
+                <li>Member discount program</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="silver-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Silver Membership Benefits</h3>
+            <p>Enhanced visibility and training opportunities</p>
+            <ul>
+                <li>All Bronze benefits</li>
+                <li>Training workshops</li>
+                <li>Business promotion</li>
+                <li>Featured in monthly spotlight</li>
+                <li>Event sponsorship opportunities</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="gold-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Gold Membership Benefits</h3>
+            <p>Premium benefits including sponsorship opportunities</p>
+            <ul>
+                <li>All Silver benefits</li>
+                <li>Sponsorship opportunities</li>
+                <li>Featured listings</li>
+                <li>Priority support</li>
+                <li>VIP event access</li>
+                <li>Board membership consideration</li>
+            </ul>
+        </div>
+    </div>
 
     <footer>
         <div class="footer-content">
@@ -140,7 +221,88 @@
         </div>
     </footer>
 
-    <script src="scripts/join.js"></script>
-    <script src="scripts/common.js"></script>
+    <script>
+        // Set current year and last modified date
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+        document.getElementById('last-modified').textContent = document.lastModified;
+        
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mainNav = document.getElementById('main-nav');
+        
+        menuToggle.addEventListener('click', () => {
+            mainNav.classList.toggle('show');
+        });
+        
+        // Set timestamp when page loads
+        document.getElementById('timestamp').value = new Date().toISOString();
+        
+        // Membership level selection
+        const membershipOptions = document.querySelectorAll('.membership-option');
+        const membershipLevelInput = document.getElementById('membership-level');
+        
+        membershipOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                membershipOptions.forEach(opt => opt.classList.remove('selected'));
+                option.classList.add('selected');
+                membershipLevelInput.value = option.getAttribute('data-level');
+            });
+        });
+        
+        // Modal functionality
+        const modals = {
+            'NP': document.getElementById('np-modal'),
+            'Bronze': document.getElementById('bronze-modal'),
+            'Silver': document.getElementById('silver-modal'),
+            'Gold': document.getElementById('gold-modal')
+        };
+        
+        const viewButtons = document.querySelectorAll('.view-benefits-btn');
+        const closeButtons = document.querySelectorAll('.close-modal');
+        
+        viewButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const level = button.getAttribute('data-level');
+                modals[level].style.display = 'block';
+            });
+        });
+        
+        closeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const modal = button.closest('.modal');
+                modal.style.display = 'none';
+            });
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', (event) => {
+            Object.values(modals).forEach(modal => {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+        
+        // Form validation
+        document.getElementById('membership-form').addEventListener('submit', (event) => {
+            if (!membershipLevelInput.value) {
+                event.preventDefault();
+                alert('Please select a membership level');
+                return;
+            }
+            
+            // Additional validation if needed
+            const firstName = document.getElementById('first-name').value.trim();
+            const lastName = document.getElementById('last-name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const businessName = document.getElementById('business-name').value.trim();
+            
+            if (!firstName || !lastName || !email || !phone || !businessName) {
+                event.preventDefault();
+                alert('Please fill in all required fields');
+            }
+        });
+    </script>
 </body>
 </html>
