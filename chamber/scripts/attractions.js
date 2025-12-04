@@ -1,0 +1,51 @@
+export const attractions = [
+  {
+    name: "Harare Gardens",
+    address: "Julius Nyerere Way, Harare, Zimbabwe",
+    description: "The largest public park in Harare, featuring beautiful gardens, walking paths, and recreational facilities.",
+    image: "images/harare-gardens.webp"
+  },
+  {
+    name: "National Gallery of Zimbabwe",
+    address: "20 Julius Nyerere Way, Harare, Zimbabwe",
+    description: "Showcasing contemporary African art and historical collections from Zimbabwe and beyond.",
+    image: "images/national-gallery.webp"
+  },
+  {
+    name: "Mukuvisi Woodlands",
+    address: "Cnr Glenara Ave & Hillside Rd, Harare, Zimbabwe",
+    description: "A nature reserve with walking trails, wildlife viewing, and environmental education programs.",
+    image: "images/mukuvisi-woodlands.webp"
+  },
+  {
+    name: "Chapungu Sculpture Park",
+    address: "16 Link Rd, Msasa, Harare, Zimbabwe",
+    description: "An outdoor gallery displaying impressive stone sculptures by Zimbabwean artists.",
+    image: "images/chapungu-sculpture.webp"
+  },
+  {
+    name: "Harare International Conference Centre",
+    address: "Sam Nujoma St, Harare, Zimbabwe",
+    description: "The premier venue for conferences, exhibitions and events in Zimbabwe.",
+    image: "images/harare-conference-centre.webp"
+  },
+  {
+    name: "The Kopje",
+    address: "Kopje Area, Harare, Zimbabwe",
+    description: "A hill overlooking the city center offering panoramic views of Harare.",
+    image: "images/kopje-harare.webp"
+  },
+  {
+    name: "Epworth Balancing Rocks",
+    address: "Epworth, Harare, Zimbabwe",
+    description: "Unique geological formations of precariously balanced granite rocks.",
+    image: "images/balancing-rocks.webp"
+  },
+  {
+    name: "Sam Levy's Village",
+    address: "Borrowdale, Harare, Zimbabwe",
+    description: "An upscale shopping and entertainment center with diverse retail and dining options.",
+    image: "images/sam-levy-village.webp"
+  }
+];
+

@@ -1,101 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Discover Harare - Learn about the business opportunities and attractions in Zimbabwe's capital">
-    <meta name="author" content="Your Name">
-    
-    <!-- Facebook Meta Tags -->
-    <meta property="og:title" content="Discover Harare - Chamber of Commerce">
-    <meta property="og:description" content="Explore business opportunities in Harare, Zimbabwe">
-    <meta property="og:image" content="images/harare-chamber-logo.jpg">
-    <meta property="og:url" content="https://yourwebsite.com/discover.html">
-    
-    <title>Discover - Harare Chamber of Commerce</title>
-    
-    <link rel="stylesheet" href="styles/normalize.css">
-    <link rel="stylesheet" href="styles/base.css">
-    <link rel="stylesheet" href="styles/larger.css">
-    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Discover Harare - Harare Chamber of Commerce</title>
+  <meta name="description" content="Discover the attractions and landmarks of Harare, Zimbabwe. Explore parks, museums, and cultural sites.">
+  <meta name="author" content="Marko Kuriyazi">
+
+  <!-- Social meta -->
+  <meta property="og:title" content="Discover Harare - Harare Chamber of Commerce">
+  <meta property="og:description" content="Explore the attractions and landmarks of Harare, Zimbabwe.">
+  <meta property="og:image" content="images/harare-chamber-logo.jpg">
+  <meta property="og:url" content="https://mk1980-o.github.io/wdd231/chamber/discover.html">
+
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="styles/normalize.css">
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/medium.css">
+  <link rel="stylesheet" href="styles/large.css">
+  <link rel="stylesheet" href="styles/discover.css">
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <img src="images/harare-chamber-logo.jpg" alt="Harare Chamber of Commerce Logo" width="100" height="100">
-            <h1>Harare Chamber of Commerce</h1>
-        </div>
-        <nav>
-            <button id="menu-toggle" aria-label="Toggle navigation menu">☰</button>
-            <ul id="main-nav">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="discover.html" class="active">Discover</a></li>
-                <li><a href="directory.html">Directory</a></li>
-                <li><a href="join.html">Join</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header>
+    <div class="header-inner">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <img src="images/harare-chamber-logo.jpg" alt="Harare Chamber logo" width="64" height="64">
+        <h1>Harare Chamber</h1>
+      </div>
 
-    <main class="discover-main">
-        <h2>Discover Harare</h2>
-        <div class="discover-content">
-            <div class="demographics">
-                <h3>About Harare</h3>
-                <p>Harare is the capital and largest city of Zimbabwe, serving as the country's political, economic, and cultural hub. Located in the northeastern part of the country, it's known for its beautiful jacaranda-lined streets and vibrant business community.</p>
-                <div class="stats">
-                    <div class="stat">
-                        <h4>Population</h4>
-                        <p>2.1 Million</p>
-                    </div>
-                    <div class="stat">
-                        <h4>Elevation</h4>
-                        <p>1,490m (4,890ft)</p>
-                    </div>
-                    <div class="stat">
-                        <h4>Founded</h4>
-                        <p>1890</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="gallery">
-                <h3>Gallery</h3>
-                <div class="gallery-grid">
-                    <figure>
-                        <img src="images/harare-city.jpg" alt="Harare City Center" loading="lazy">
-                        <figcaption>Harare City Center</figcaption>
-                    </figure>
-                    <figure>
-                        <img src="images/business-district.jpg" alt="Business District" loading="lazy">
-                        <figcaption>Business District</figcaption>
-                    </figure>
-                    <figure>
-                        <img src="images/harare-park.jpg" alt="Harare Gardens" loading="lazy">
-                        <figcaption>Harare Gardens</figcaption>
-                    </figure>
-                </div>
-            </div>
-        </div>
-    </main>
+      <nav>
+        <button id="menu-toggle" aria-label="Toggle menu">☰</button>
+        <ul id="main-nav" role="menubar" aria-label="Main navigation">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="directory.html">Directory</a></li>
+          <li><a href="discover.html" class="active">Discover</a></li>
+          <li><a href="join.html">Join</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <footer>
-        <div class="footer-content">
-            <div class="contact-info">
-                <h3>Contact Information</h3>
-                <p>Harare Chamber of Commerce</p>
-                <p>123 Business District, Harare</p>
-                <p>Zimbabwe</p>
-                <p>Email: info@hararechamber.org</p>
-                <p>Phone: +263 242 123456</p>
-            </div>
-            <div class="development-info">
-                <p>&copy; <span id="current-year"></span> Harare Chamber of Commerce</p>
-                <p>Marko Kuriyazi | WDD 231</p>
-                <p>Last Modified: <span id="last-modified"></span></p>
-            </div>
-        </div>
-    </footer>
+  <main class="container" id="main">
+    <!-- Visitor Message Section -->
+    <section class="visitor-message" aria-live="polite">
+        <h2>Visitor Information</h2>
+        <div id="visit-message"></div>
+    </section>
 
-    <script src="scripts/common.js"></script>
+    <!-- Discover Section -->
+    <section aria-labelledby="discover-heading">
+      <h2 id="discover-heading">Discover Harare</h2>
+      <p>Explore the beautiful attractions and landmarks that make Harare a special place to live, work, and visit.</p>
+      
+      <div id="cards" class="cards-grid" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <h3>Contact</h3>
+        <p>Harare Chamber of Commerce</p>
+        <p>123 Business District, Harare</p>
+      </div>
+      <div style="text-align:right;">
+        <p>&copy; <span id="current-year"></span> Harare Chamber</p>
+        <p>Marko Kuriyazi | WDD 231</p>
+        <p>Last Modified: <span id="last-modified"></span></p>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="scripts/discover.js"></script>
 </body>
 </html>

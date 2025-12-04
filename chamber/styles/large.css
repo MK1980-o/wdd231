@@ -194,3 +194,48 @@
     width: 95%;
   }
 }
+
+@media (min-width: 1025px) {
+  .cards-grid {
+    grid-template-areas: 
+      "card1 card2 card3"
+      "card4 card5 card6"
+      "card7 card8 .";
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/* Large screens (desktop): 3 columns */
+@media (min-width: 769px) {
+  .cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-areas:
+      "card1 card2 card3"
+      "card4 card5 card6"
+      "card7 card8 .";
+    gap: 25px;
+  }
+  
+  /* Optional: Adjust card content for larger screens */
+  .card-content {
+    padding: 25px;
+  }
+  
+  .card-content h3 {
+    font-size: 1.4rem;
+  }
+  
+  .card-image {
+    height: 250px;
+  }
+}
+
+/* Extra large screens */
+@media (min-width: 1024px) {
+  .cards-grid {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas:
+      "card1 card2 card3 card4"
+      "card5 card6 card7 card8";
+  }
+}

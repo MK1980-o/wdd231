@@ -1,0 +1,19 @@
+@media (min-width: 600px) and (max-width: 768px) {
+  .cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "card1 card2"
+      "card3 card4"
+      "card5 card6"
+      "card7 card8";
+    gap: 15px;
+  }
+  
+  .container {
+    padding: 15px;
+  }
+  
+  .visitor-message {
+    padding: 15px;
+  }
+}
