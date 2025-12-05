@@ -16,6 +16,7 @@
   <link rel="icon" href="images/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="styles/normalize.css">
   <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/directory.css">
 </head>
 <body>
   <header>
@@ -38,24 +39,63 @@
 
   <main class="container" id="main">
     <section aria-labelledby="directory-heading">
-      <h2 id="directory-heading">Member Directory</h2>
+      <h1 id="directory-heading">Member Directory</h1>
+      <p>Browse and connect with our chamber members. Use the controls below to filter and view members.</p>
 
-      <div class="controls" role="region" aria-label="Directory controls">
-        <div>
-          <button class="view-btn" id="grid-view" aria-pressed="true">Grid</button>
-          <button class="view-btn" id="list-view" aria-pressed="false">List</button>
+      <div class="directory-controls" role="region" aria-label="Directory controls">
+        <div class="view-toggle">
+          <button class="view-btn active" id="grid-view" aria-pressed="true">
+            <span class="icon">☷</span> Grid
+          </button>
+          <button class="view-btn" id="list-view" aria-pressed="false">
+            <span class="icon">☰</span> List
+          </button>
         </div>
 
-        <label for="filter-level" style="margin-left:12px;color:var(--muted);font-size:0.95rem;">Membership:</label>
-        <select id="filter-level" class="filter-select" aria-label="Filter by membership">
-          <option value="all">All</option>
-          <option value="3">Gold</option>
-          <option value="2">Silver</option>
-          <option value="1">Member</option>
-        </select>
+        <div class="filters">
+          <div class="filter-group">
+            <label for="search-input" class="visually-hidden">Search members</label>
+            <div class="search-box">
+              <span class="search-icon">🔍</span>
+              <input type="text" id="search-input" placeholder="Search by name or industry...">
+            </div>
+          </div>
+
+          <div class="filter-group">
+            <label for="filter-industry">Industry:</label>
+            <select id="filter-industry" class="filter-select">
+              <option value="all">All Industries</option>
+              <option value="Mining">Mining</option>
+              <option value="Technology">Technology</option>
+              <option value="Agriculture">Agriculture</option>
+              <option value="Tourism">Tourism</option>
+              <option value="Construction">Construction</option>
+              <option value="Banking">Banking</option>
+              <option value="Healthcare">Healthcare</option>
+            </select>
+          </div>
+
+          <div class="filter-group">
+            <label for="filter-level">Membership:</label>
+            <select id="filter-level" class="filter-select">
+              <option value="all">All Levels</option>
+              <option value="3">Gold Members</option>
+              <option value="2">Silver Members</option>
+              <option value="1">Regular Members</option>
+            </select>
+          </div>
+        </div>
       </div>
 
-      <div id="cards" class="cards-grid" aria-live="polite"></div>
+      <div class="member-count" aria-live="polite">
+        <span id="member-count">Loading...</span>
+      </div>
+
+      <div id="directory-cards" class="cards-grid" aria-live="polite"></div>
+
+      <div class="no-results" id="no-results" style="display: none;">
+        <p>No members match your search criteria. Try adjusting your filters.</p>
+      </div>
     </section>
   </main>
 
@@ -65,15 +105,18 @@
         <h3>Contact</h3>
         <p>Harare Chamber of Commerce</p>
         <p>123 Business District, Harare</p>
+        <p>Email: info@hararechamber.org</p>
+        <p>Phone: +263 242 123456</p>
       </div>
-      <div style="text-align:right;">
+      <div class="footer-right">
         <p>&copy; <span id="current-year"></span> Harare Chamber</p>
         <p>Marko Kuriyazi | WDD 231</p>
         <p>Last Modified: <span id="last-modified"></span></p>
+        <p id="visitor-count"></p>
       </div>
     </div>
   </footer>
 
-  <script src="scripts/directory.js"></script>
+  <script src="scripts/directory.js" type="module"></script>
 </body>
 </html>
